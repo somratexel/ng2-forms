@@ -8,8 +8,8 @@ import { User } from '../app.user';
 })
 export class TdfComponent implements OnInit {
   user = new User('','',{});
-  onSubmit(value: any){
-    console.log(value);
+  onSubmit(value: any, valid: boolean){
+    console.log(valid, value);
     console.log(this.user);
   }
 

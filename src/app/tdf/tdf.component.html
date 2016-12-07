@@ -1,8 +1,12 @@
-<form #tdfForm = "ngForm" (ngSubmit) = "onSubmit(tdfForm.value)">
+<form #tdfForm = "ngForm" (ngSubmit) = "onSubmit(tdfForm.value, tdfForm.valid)" novalidate>
   <div class="form-group">
     <label>Name</label>
-    <input type="text" #nameRef required class="form-control" name="name" [(ngModel)] = "user.name">
-    <b>{{nameRef.className}}</b>
+    <input type="text" #nameRef="ngModel" minlength="4" maxlength="10" required class="form-control" name="name" [(ngModel)] = "user.name">
+    <div *ngIf="nameRef.errors && nameRef.dirty" class="alert alert-danger">
+      <div [hidden] = "!nameRef.errors.required">Please enter name</div>
+      <div [hidden] = "!nameRef.errors.minlength">Please enter atleast 4 characters</div>
+      <div [hidden] = "!nameRef.errors.maxlength">Character limit to 10</div>
+    </div>
   </div>
   <div class="form-group">
     <label>Email</label>
@@ -19,10 +23,13 @@
     </div>
     <div class="form-group">
       <label>Postal Code</label>
-      <input type="text" class="form-control" name="postalcode" [(ngModel)] = "user.address.postalcode">
+      <input type="text" #postcodeRef = "ngModel" pattern="^[1-9][1-9]{4}$" class="form-control" name="postalcode" [(ngModel)] = "user.address.postalcode">
+      <div *ngIf="postcodeRef.errors && postcodeRef.dirty" class="alert alert-danger">
+        <div [hidden] = "!postcodeRef.errors.pattern">Please enter five digit number</div>
+      </div>
     </div>
   </div>
 
-  <button type="submit" class="btn btn-large btn-block btn-primary">Submit</button>
+  <button [disabled] = "!tdfForm.form.valid" type="submit" class="btn btn-large btn-block btn-primary">Submit</button>
   
 </form>
