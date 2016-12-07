@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { TdfComponent } from './tdf/tdf.component';
+import { MdfComponent } from './mdf/mdf.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TdfComponent,
+    MdfComponent
   ],
   imports: [
     BrowserModule,
