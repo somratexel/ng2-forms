@@ -1,7 +1,7 @@
 <form [formGroup] = "userForm" (ngSubmit)="onSubmit()" novalidate>
   <div class="form-group">
     <label>Name</label>
-    <input #nameRef type="text" class="form-control" formControlName = "name">
+    <input #refName type="text" class="form-control" formControlName = "name">
     <div *ngIf="userForm.controls['name'].hasError('required')" class="alert alert-danger">
       Please enter name
     </div>
@@ -35,5 +35,4 @@
   </div>
 
   <button [disabled]="!userForm.valid" type="submit" class="btn btn-large btn-block btn-primary">Submit</button>
-  
 </form>

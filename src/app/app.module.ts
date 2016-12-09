@@ -6,12 +6,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TdfComponent } from './tdf/tdf.component';
 import { MdfComponent } from './mdf/mdf.component';
+import { FbfComponent } from './fbf/fbf.component';
+import { Fbf1Component } from './fbf1/fbf1.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TdfComponent,
-    MdfComponent
+    MdfComponent,
+    FbfComponent,
+    Fbf1Component
   ],
   imports: [
     BrowserModule,

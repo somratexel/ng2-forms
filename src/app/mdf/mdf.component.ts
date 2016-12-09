@@ -10,7 +10,7 @@ import { User } from '../app.user';
 export class MdfComponent implements OnInit {
 
   userForm = new FormGroup({
-    name: new FormControl('Somrat', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]),
+    name: new FormControl('somrat', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]),
     email: new FormControl(),
     address: new FormGroup({
       street: new FormControl(),
